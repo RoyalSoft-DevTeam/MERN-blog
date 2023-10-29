@@ -1,0 +1,35 @@
+{
+  "name": "mern-blog",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "16.13.1"
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www",
+    "serverstart": "DEBUG=MERN-blog:* npm run devstart",
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "express": "~4.16.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
+    "google-auth-library": "^9.2.0",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.4",
+    "morgan": "~1.9.1",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
