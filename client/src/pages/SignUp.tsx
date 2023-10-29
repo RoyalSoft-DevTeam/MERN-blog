@@ -29,11 +29,11 @@ function SignUp() {
         type: 'general'
       })
       .then((res) => {
+        navigate("/login");
         dispatch({
           type: 'LOGIN_SUCCESS',
           payload: res.data()
         })
-        navigate("/login");
       })
       .catch((err) => console.log(err));
   };
@@ -46,7 +46,6 @@ function SignUp() {
     flow: 'auth-code',
     onSuccess: async codeResponse => {
       const tokens = await axios.post('http://localhost:3000/api/users/googleSignup', { code: codeResponse.code, type: 'google' })
-      console.log("tokens", tokens)
       if (tokens.statusText) {
         navigate('/login')
       }

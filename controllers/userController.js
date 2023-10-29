@@ -14,9 +14,8 @@ exports.signup = async (req, res) => {
     const profile = await googleOAuth.getProfileInfo(code)
 
     if (profile?.email_verified) {
-      firstName = profile.name
-      email = profile.email
-      company = profile.company
+      const firstName = profile.given_name
+      const email = profile.email
 
       User.findOne({ email: email }, (err, user) => {
         if (user) return res.json({ message: 'Username already exists.' })
@@ -24,10 +23,7 @@ exports.signup = async (req, res) => {
           User.create(
             {
               firstName,
-              lastName,
               email,
-              company,
-              // password,
               type
             },
             (err, user) => {
