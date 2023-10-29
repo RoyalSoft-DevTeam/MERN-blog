@@ -29,11 +29,10 @@ function Home({ user, posts }: IProps) {
     <div>
       <div className="bg-gray-300 py-20 px-12">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-          Welcome to my blog!
+          Welcome!
         </h1>
         <p className="pt-4 w-60 sm:w-72 md:w-96 leading-6">
-          Hi there! Welcome to my blog, where anyone can give their thoughts on
-          full stack technologies along with other things!
+          Hi there! Welcome to my blog
         </p>
         {!user ? (
           <div>
@@ -45,7 +44,6 @@ function Home({ user, posts }: IProps) {
           </div>
         ) : null}
       </div>
-      <h2 className="text-3xl mt-12 px-12 font-semibold">Blogs</h2>
       <div className="flex items-center justify-center flex-wrap mx-8 lg:justify-start lg:items-start">
         {publishedPosts
           .slice(0)

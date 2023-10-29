@@ -12,7 +12,6 @@ const User = require('./models/user')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
-const postsRouter = require('./routes/posts')
 
 const app = express()
 
@@ -32,7 +31,6 @@ app.use(express.static(path.resolve(__dirname, './client/build')))
 
 app.use('/', indexRouter)
 app.use('/api/users', usersRouter)
-app.use('/api/posts', postsRouter)
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './client/build', 'index.html'))

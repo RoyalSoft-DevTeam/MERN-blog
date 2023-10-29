@@ -5,11 +5,8 @@ import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
-import PostForm from "./pages/PostForm";
 import Dashboard from "./pages/Dashboard";
-import Post from "./pages/Post";
 import NoPageFound from "./pages/NoPageFound";
-import UpdateForm from "./pages/UpdateForm";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import { PersistGate } from 'redux-persist/integration/react';
@@ -61,28 +58,9 @@ function App() {
                 <Route path="/login" element={<Login setUser={setUser} />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route
-                  path="/create"
-                  element={<PostForm posts={posts} setPosts={setPosts} />}
-                />
-                <Route
                   path="/dashboard"
                   element={<Dashboard posts={posts} setPosts={setPosts} />}
                 />
-                {/* Posts  */}
-                {posts.map((post) => (
-                  <Route
-                    key={post._id}
-                    path={`/posts/${post._id}`}
-                    element={<Post {...post} user={user} />}
-                  />
-                ))}
-                {posts.map((post) => (
-                  <Route
-                    key={post._id}
-                    path={`/posts/${post._id}/update`}
-                    element={<UpdateForm {...post} setPosts={setPosts} />}
-                  />
-                ))}
                 {/* No page found */}
                 <Route path="*" element={<NoPageFound />} />
               </Routes>

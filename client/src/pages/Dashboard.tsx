@@ -60,7 +60,7 @@ function Dashboard({ posts, setPosts }: IProps) {
   };
 
   useEffect(() => {
-    document.title = "Dashboard | MERN Blog";
+    document.title = "MERN Authentication";
   }, []);
 
   return (
